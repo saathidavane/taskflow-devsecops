@@ -19,7 +19,7 @@ class JsonFormatter(logging.Formatter):
             "request_id": request_id_var.get(),
         }
         for key, value in record.__dict__.items():
-            if key not in _RESERVED:
+            if key not in _RESERVED and key != "color_message":
                 payload[key] = value
         if record.exc_info:
             payload["exception"] = self.formatException(record.exc_info)
