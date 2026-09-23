@@ -14,3 +14,4 @@ htmlcov/
 *.tfstate
 *.tfstate.*
 .terraform/
+bandit-report.json
