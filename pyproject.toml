@@ -17,7 +17,13 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["pytest", "pytest-cov", "httpx", "ruff"]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "httpx",
+    "ruff",
+    "pip-audit>=2.10.1",
+]
 
 [tool.ruff]
 line-length = 100
