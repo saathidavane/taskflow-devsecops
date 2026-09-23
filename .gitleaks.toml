@@ -1,0 +1,14 @@
+title = "TaskFlow Gitleaks Config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Known safe test/placeholder values"
+regexes = [
+  '''test-only-secret-key-0123456789-abcdefghij''',
+  '''replace-with-generated-value''',
+]
+paths = [
+  '''\.env\.example$''',
+]
