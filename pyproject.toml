@@ -14,6 +14,7 @@ dependencies = [
   "pyjwt",
   "pwdlib[argon2]",
   "python-multipart",
+  "msgpack>=1.2.1",
 ]
 
 [dependency-groups]
