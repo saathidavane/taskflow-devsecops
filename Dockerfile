@@ -16,14 +16,19 @@ RUN uv sync --frozen --no-dev
 # ---- Stage 2: runtime ----
 FROM python:3.13-slim AS runtime
 
+RUN groupadd --system --gid 1000 appgroup \
+    && useradd --system --uid 1000 --gid appgroup --no-create-home appuser
+
 WORKDIR /app
 
-COPY --from=builder /app/.venv /app/.venv
-COPY --from=builder /app/app ./app
-COPY --from=builder /app/migrations ./migrations
-COPY --from=builder /app/alembic.ini ./
+COPY --from=builder --chown=appuser:appgroup /app/.venv /app/.venv
+COPY --from=builder --chown=appuser:appgroup /app/app ./app
+COPY --from=builder --chown=appuser:appgroup /app/migrations ./migrations
+COPY --from=builder --chown=appuser:appgroup /app/alembic.ini ./
 
 ENV PATH="/app/.venv/bin:$PATH"
+
+USER appuser
 
 EXPOSE 8000
 
