@@ -1,3 +1,8 @@
+# NOTE: Trivy caches per-layer scan results in ~/.cache/trivy. If you rebuild
+# an image with unchanged layers after fixing a dependency, run
+# `trivy clean --scan-cache` before rescanning, or Trivy will report stale,
+# pre-fix results even though the image content is correct.
+
 # ---- Stage 1: builder ----
 FROM python:3.13-slim AS builder
 
