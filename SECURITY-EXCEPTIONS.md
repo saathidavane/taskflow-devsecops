@@ -22,7 +22,7 @@ which Trivy itself confirms as clean.
 **Why it can't be fixed here:** `pip`'s vendored dependencies are bundled at
 build time by the pip maintainers and are not independently upgradable via
 `uv add` or `pip install`. As of pip 26.2.1 (the current latest release
-verified on <DATE>), this is still the bundled version.
+verified on 2026-09-24), this is still the bundled version.
 
 **Mitigation:** The vendored copy is only used internally by pip's own
 package-resolution logic during `pip install` at image build time. It is
