@@ -1,0 +1,13 @@
+# See SECURITY-EXCEPTIONS.md for full reasoning on each entry below.
+
+# msgpack, vendored inside pip's own bundled dependencies. Not reachable by
+# the application; pip itself is removed from the runtime image (Phase 2
+# multi-stage build). No fix available — pip 26.2.1 is current and still
+# vendors this version.
+GHSA-6v7p-g79w-8964
+
+# setuptools 70.3.0 — confirmed false positive. No setuptools installation
+# exists anywhere in the built image (verified via direct filesystem search).
+# Trivy 0.71.2 appears to misattribute this finding. Re-check on Trivy
+# version upgrade.
+CVE-2025-47273
